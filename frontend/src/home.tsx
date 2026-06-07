@@ -17,7 +17,7 @@ export function Home() {
     password: false,
   });
   const [erro, setErro] = useState("");
-  const [saved, setSaved] = useState<any>(() => JSON.parse(localStorage.getItem('savedUser') ?? 'null'));
+  // const [_saved, setSaved] = useState<any>(() => JSON.parse(localStorage.getItem('savedUser') ?? 'null'));
 
   const errors = {
     name: !name.trim() ? "O nome não pode ser vazio" : "",
@@ -122,11 +122,11 @@ export function Home() {
         const data = await resp.json();
         console.log(data);
         localStorage.setItem('savedUser', JSON.stringify(data));
-        setSaved(data);
+        // setSaved(data);
         Swal.fire({
             icon: 'success',
             title: 'Login realizado com sucesso',
-            text: saved.name,
+            text: data.msgSuccess,
             timer: 2000,
         });
         navegate('/profiledata');
