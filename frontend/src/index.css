@@ -1,0 +1,22 @@
+/* vscode-nesting-support-disable */
+@import 'tailwindcss';
+
+:root {
+    --primary-color: #3a3a3f;
+}
+
+/* css(unknownAtRules) disable  */
+@custom-variant dark (&:where(.dark, .dark *));
+
+label {
+    transition: .3s;
+}
+
+input:focus + label,
+input:not(:placeholder-shown) + label {
+    @apply top-0 text-sm px-1 bg-white text-blue-500 dark:text-(--primary-color) dark:bg-[#1c1c1e] dark:text-white;
+}
+input:focus,
+input:not(:placeholder-shown) {
+    @apply border-blue-500 dark:border-(--primary-color);
+}
