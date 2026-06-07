@@ -120,15 +120,15 @@ export function Home() {
         if (!resp.ok) throw new Error("Erro na requisição");
 
         const data = await resp.json();
-        console.log(data.msgSuccess);
+        console.log(data);
         localStorage.setItem('savedUser', JSON.stringify(data));
         setSaved(data);
         Swal.fire({
             icon: 'success',
             title: 'Login realizado com sucesso',
-            text: data.msgSuccess,
+            text: saved.name,
             timer: 2000,
-        })
+        });
         navegate('/profiledata');
         handleReset();
       } catch (error) {
