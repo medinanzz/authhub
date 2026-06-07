@@ -112,7 +112,7 @@ export function Home() {
     setTouched({ name: true, email: true, password: true });
     if (!errors.name && !errors.email && !errors.password) {
       try {
-        const resp = await fetch("http://https://api-authhub.onrender.com/user/login", {
+        const resp = await fetch("https://https://api-authhub.onrender.com/user/login", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ name, email, password }),
