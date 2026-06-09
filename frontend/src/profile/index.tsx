@@ -1,23 +1,21 @@
-// src/pages/Profile.tsx
-import { useNavigate } from "react-router-dom";
 import { HeaderProfile } from "./header";
 
-
-
 export function Profile() {
-  const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem("savedUser") ?? "null");
 
-  if (!user) {
-    navigate("/");
-    return null;
-  }
-
   return (
-    <div className="min-h-screen">
+    <div className=" ">
       <HeaderProfile />
-      <p>{user.nameUser}</p>
-      <p>{user.emailUser}</p>
+      <div className="min-h-screen dark:bg-[#1c1c1e] dark:text-white flex items-center justify-center">
+       {user ? (
+          <ul>
+            <li>{user.nameUser}</li>
+            <li>{user.emailUser}</li>
+          </ul>
+        ) : (
+          <p>Nenhum usuário cadastrado</p>
+        )}
+      </div>
     </div>
   );
 }
