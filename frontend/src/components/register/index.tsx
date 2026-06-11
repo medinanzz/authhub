@@ -83,9 +83,6 @@ export function Register() {
     setName("");
     setPassword("");
     setViewPassword(false);
-    errors.name = '';
-    errors.email = '';
-    errors.password = '';
     setTouched({ name: false, password: false, email: false });
     setErro('');
   }
@@ -109,7 +106,7 @@ export function Register() {
   ];
 
   /* fromHandle */
-  const url = import.meta.env.VITE_API_URL
+  const url = import.meta.env.VITE_API_URL;
   async function handleFormSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setTouched({ name: true, email: true, password: true });
@@ -120,9 +117,19 @@ export function Register() {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ name, email, password }),
         });
-        if (!resp.ok) throw new Error("Erro na requisição");
-
         const data = await resp.json();
+        
+        if(resp.status === 409) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Ops... algo deu errado :(',
+            text: data.msg
+          });
+          return;
+        }
+        
+        if (!resp.ok) throw new Error("Erro na requisição");
+        
         console.log(data);
         localStorage.setItem('savedUser', JSON.stringify(data));
         // setSaved(data);
@@ -145,7 +152,7 @@ export function Register() {
     <div className="dark:bg-[#1c1c1e] dark:text-white">
       <NavBarHome />
       <div className="flex items-center justify-center min-h-screen flex-col gap-2">
-        <h1 className="font-bold text-3xl uppercase">Auth Hub</h1>
+        <h1 className="font-bold text-3xl uppercase">Auth Hub - Cadastro</h1>
         <form
           onSubmit={handleFormSubmit}
           className="shadow-[0_0_10px_rgba(0,0,0,.2)] dark:shadow-[0_0_10px_rgba(255,255,255,.1)] rounded p-4 w-70 mt-2"

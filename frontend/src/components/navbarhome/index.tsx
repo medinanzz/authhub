@@ -68,11 +68,11 @@ export function NavBarHome() {
         </button>
       </div>
       <nav
-        className={`z-10 absolute left-0 bg-white min-h-screen top-0 w-60 pt-12 pb-2 dark:bg-[#1c1c1e] ${isOpen ? "translate-x-0 shadow-[0_0_10px_rgba(0,0,0,.2)] dark:shadow-[0_0_10px_rgba(255,255,255,.2)]" : "-translate-x-full shadow-[0_0_0_rgba(0,0,0,0)] dark:shadow-[0_0_0_rgba(255,255,255,0)]"} transition-all duration-300 flex flex-col justify-between`}
+        className={`overflow-hidden z-10 absolute left-0 bg-white min-h-screen top-0 w-60 pt-12 pb-2 dark:bg-[#1c1c1e] ${isOpen ? "translate-x-0 shadow-[0_0_10px_rgba(0,0,0,.2)] dark:shadow-[0_0_10px_rgba(255,255,255,.2)]" : "-translate-x-full shadow-[0_0_0_rgba(0,0,0,0)] dark:shadow-[0_0_0_rgba(255,255,255,0)]"} transition-all duration-300 flex flex-col justify-between`}
       >
         <ul className="flex flex-col gap-1">
           {links.map((item) => (
-            <li key={item.id}>
+            <li key={item.id} className={`${isOpen ? 'entry-menu-elements' : ''}`}>
               <button
                 onClick={item.click}
                 aria-current={isActive(item.path) ? "page" : undefined}

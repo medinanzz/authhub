@@ -1,7 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 // import { Home } from '../home';
 import { Profile } from '../profile';
-import { ProfileWhenCreated } from '../profile/data';
 import { Layout } from '../layout';
 import { Login } from '../components/login';
 import { Home } from '../home';
@@ -16,7 +15,6 @@ export function RouteApp() {
                     <Route path='/login' element={<Login />} />
                     <Route path='/register'element={<Register />} />
                     <Route path="/profiledata" element={<Profile />} />
-                    <Route path="/profilewhencreated" element={<ProfileWhenCreated />} />
                 </Route>
             </Routes>
         </>

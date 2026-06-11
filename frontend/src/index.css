@@ -20,3 +20,31 @@ input:focus,
 input:not(:placeholder-shown) {
     @apply border-blue-500 dark:border-(--primary-color);
 }
+
+.entry-menu-elements {
+    animation: entry .35s linear forwards;
+    animation-delay: var(--delay);
+    transform: translateX(-100%);
+}
+
+.entry-menu-elements:nth-child(1){
+    --delay: 0s;
+}
+.entry-menu-elements:nth-child(2){
+    --delay: .2s;
+}
+.entry-menu-elements:nth-child(3){
+    --delay: .4s;
+}
+.entry-menu-elements:nth-child(4){
+    --delay: .6s;
+}
+
+@keyframes entry {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
