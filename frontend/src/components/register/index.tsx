@@ -129,10 +129,8 @@ export function Register() {
         }
         
         if (!resp.ok) throw new Error("Erro na requisição");
-        
-        console.log(data);
         localStorage.setItem('savedUser', JSON.stringify(data));
-        // setSaved(data);
+        
         Swal.fire({
             icon: 'success',
             title: 'Login realizado com sucesso',
