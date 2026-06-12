@@ -75,6 +75,7 @@ app.post("/user/login", (req, res) => {
     CreatedUserBody,
     "email" | "password"
   >;
+  
   if (!email?.trim() || !password?.trim()) {
     res.status(400).json({
       error: "Email e senha são obrigatórios",
@@ -92,11 +93,16 @@ app.post("/user/login", (req, res) => {
     | { id: number; password: string; email: string; name: string; createdAt: string }
     | undefined;
 
-  if (!user || !bcrypt.compareSync(password, user.password)) {
+  if (!user) {
+    res.status(404).json({
+      msg: 'Usuário não encontrado',
+    });
+    return;
+  }
+    if (!user || !bcrypt.compareSync(password, user.password)) {
     res.status(401).json({ msg: "Email ou senha inválidos" });
     return;
   }
-
   
   res.status(200).json({
     msg: "Login efetuado com sucesso",

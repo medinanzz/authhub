@@ -118,6 +118,13 @@ export function Login() {
           });
           return;
         }
+        if (resp.status === 404) {
+          Swal.fire({
+            icon: "error",
+            title: "Ops... algo deu errado :(",
+            text: data.msg,
+          });
+        }
         if (!resp.ok) throw new Error("Erro na requisição");
 
         console.log(data);
