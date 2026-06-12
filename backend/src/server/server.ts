@@ -6,6 +6,7 @@ const app = express();
 const corsOptions = {
   origin: [
     "https://authhub-git-main-medinanzzs-projects.vercel.app",
+    "https://authhub-eight.vercel.app/",
     "http://localhost:5173",
   ],
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
