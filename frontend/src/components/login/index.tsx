@@ -146,13 +146,13 @@ export function Login() {
   }
 
   return (
-    <div className="dark:bg-[#1c1c1e] dark:text-white">
+    <div className="dark:bg-[#1c1c1e] text-white bg-img-login-register">
       <NavBarHome />
       <div className="flex items-center justify-center min-h-screen flex-col gap-2">
-        <h1 className="font-bold text-3xl uppercase">Auth Hub - Cadastro</h1>
+        <h1 className="font-bold text-3xl uppercase entry-from-element">Auth Hub - login</h1>
         <form
           onSubmit={handleFormSubmit}
-          className="shadow-[0_0_10px_rgba(0,0,0,.2)] dark:shadow-[0_0_10px_rgba(255,255,255,.1)] rounded p-4 w-70 mt-2"
+          className=" bg-[rgb(255,255,255,.3)] entry-from-element  backdrop-blur-xs dark:bg-[rgb(0,0,0,.4)] rounded p-4 w-70 mt-2"
         >
           <div className="flex flex-col gap-2 w-full">
             {inputs.map((item) => (

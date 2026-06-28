@@ -62,13 +62,13 @@ export function NavBarHome() {
       <div className="absolute pt-3 pl-3">
         <button
           onClick={handleOpen}
-          className="w-8 h-8 flex items-center justify-center rounded-full cursor-pointer transition-all duration-300 hover:bg-gray-200 relative z-50 dark:text-white dark:hover:bg-(--primary-color) "
+          className="w-8 h-8 flex items-center justify-center rounded-full cursor-pointer transition-all duration-300 hover:bg-[rgb(255,255,255,.4)] relative z-50 dark:text-white dark:hover:bg-[rgb(0,0,0,.4)] backdrop-blur-md "
         >
           <FiMenu size={20} />
         </button>
       </div>
       <nav
-        className={`overflow-hidden z-10 absolute left-0 bg-white min-h-screen top-0 w-60 pt-12 pb-2 dark:bg-[#1c1c1e] ${isOpen ? "translate-x-0 shadow-[0_0_10px_rgba(0,0,0,.2)] dark:shadow-[0_0_10px_rgba(255,255,255,.2)]" : "-translate-x-full shadow-[0_0_0_rgba(0,0,0,0)] dark:shadow-[0_0_0_rgba(255,255,255,0)]"} transition-all duration-300 flex flex-col justify-between`}
+        className={`overflow-hidden z-10  absolute left-0 bg-[rgb(255,255,255,.4)] min-h-screen top-0 w-60 pt-12 pb-2 dark:bg-[#1c1c1e7e] backdrop-blur-xs ${isOpen ? "translate-x-0 shadow-[0_0_10px_rgba(0,0,0,.2)] dark:shadow-[0_0_10px_rgba(255,255,255,.2)]" : "-translate-x-full shadow-[0_0_0_rgba(0,0,0,0)] dark:shadow-[0_0_0_rgba(255,255,255,0)]"} transition-all duration-300 flex flex-col justify-between`}
       >
         <ul className="flex flex-col gap-1">
           {links.map((item) => (
@@ -78,12 +78,12 @@ export function NavBarHome() {
                 aria-current={isActive(item.path) ? "page" : undefined}
                 disabled={isActive(item.path)}
                 className={`w-full p-3 text-left transition-colors
-                hover:bg-gray-50 hover:inset-shadow-[0_0_5px_rgba(0,0,0,.2)] dark:text-white dark:hover:bg-(--primary-color)
+                hover:bg-[rgb(200,200,200,.4)] hover:backdrop-blur-xs hover:inset-shadow-[0_0_5px_rgba(0,0,0,.2)] text-black dark:text-white dark:hover:bg-(--primary-color)
                 cursor-pointer
                 disabled:pointer-events-none disabled:cursor-default
                 ${
                 isActive(item.path)
-                    ? "bg-gray-50 inset-shadow-[0_0_5px_rgba(0,0,0,.2)] dark:bg-(--primary-color)"
+                    ? "bg-[rgb(200,200,200,.4)] backdrop-blur-xs inset-shadow-[0_0_5px_rgba(0,0,0,.2)] dark:bg-(--primary-color)"
                     : ""
                 }`}
               >
